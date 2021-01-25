@@ -1,0 +1,52 @@
+.contact-container{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    justify-items: center;
+}
+
+.contact-container>div{
+    width: 40%;
+    min-height: 100%;
+    padding: 2%;
+    /* border: 1px solid red; */
+}
+
+.contact-container>div h1, .find-us h1{
+    font-size: 2vw;
+    font-weight: 700;
+    color: #0B98D2;
+    display: block;
+}
+
+.find-us{
+    width: 80%;
+    min-height: 50%;
+    margin:0 auto;
+    display: block;
+    padding: 2%;
+}
+
+.find-us>span{
+    width: 30%;
+    display: inline-block;
+}
+
+.find-us>span i{
+    margin-right: 5%;
+}
+
+.find-us>span p{
+    margin: 2% 0%;
+}
+.map-box{
+    width: 90%;
+    height: 60%;
+    background: slategray;
+    margin:20% auto;
+    text-align: center;
+    background: url('../images/map.PNG');
+}
+

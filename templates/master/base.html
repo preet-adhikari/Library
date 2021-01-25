@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block 'title' %}  {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'book' %}">Book</a></li>
+          <li><a href="{% url 'student' %}">Student</a></li>
+          <li><a href="{% url 'staff' %}">Staff</a></li>
+          <li><a href="{% url 'borrow' %}">Borrow</a></li>
+          <li><a href="{% url 'return1' %}">Return</a></li>
+          <li><a href="{% url 'lost' %}">Lost</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    {% block 'content' %}
+
+
+
+
+    {% endblock %}
+</body>
+</html>

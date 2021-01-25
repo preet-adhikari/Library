@@ -1,0 +1,58 @@
+{% extends 'master/base.html' %}
+{% block 'title' %} Books {% endblock %}
+
+{% block 'content' %}
+    <div class="container">
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Add Books</h3>
+              </div>
+              <div class="panel-body">
+                      <form method="POST" action="{% url 'book' %}">
+                        {{form}}
+                          {% csrf_token %}
+                          <br/>
+                          <button type="submit" class="btn btn-primary">Save</button>
+                      </form>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Add Books</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>available</th>
+                            <th>Stock</th>
+                            <th>Purchased Date</th>
+                            <th>Category</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for bks in book1 %}
+                        <tr>
+                            <td>{{bks.book_name}}</td>
+                            <td>{{bks.available}}</td>
+                            <td>{{bks.stock}}</td>
+                            <td>{{bks.pur_date}}</td>
+                            <td>{{bks.category}}</td>
+                            <td><a href="{% url 'add_book' bks.id %}">Add Book</a> |
+                                <a href="{% url 'delete_item' bks.id%}">delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

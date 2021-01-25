@@ -1,0 +1,53 @@
+{% extends 'master/base.html' %}
+{% block 'title' %} Lost {% endblock %}
+
+{% block 'content' %}
+    <div class="container">
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Borrow Status</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Student</th>
+                            <th>Book Code</th>
+                            <th>Status</th>
+                            <th>Borrowed Date</th>
+                            <th>Lost Description</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for bor in borrow1 %}
+                        <tr>
+                            <td>{{bor.Book}}</td>
+                            <td>{{bor.Student.first_name}}{{bor.Student.last_name}}</td>
+                            <td>{{bor.book_code}}</td>
+                            <td>{{bor.status}}</td>
+                            <td>{{bor.borrow_date}}</td>
+                            <form method="POST" action="{% url 'lost' %}">
+                            <td>
+                                <input type="text" name="text_id" value =""/>
+                                    <input type="hidden" name="borrow_id" value ="{{bor.id}}"/>
+                            </td>
+                                    {% csrf_token %}
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Lost</button>
+                                </td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+              </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
